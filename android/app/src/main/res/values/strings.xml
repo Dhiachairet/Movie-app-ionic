@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="title_activity_main">MovieApp</string>
+    <string name="package_name">io.ionic.movieapp</string>
+    <string name="custom_url_scheme">io.ionic.movieapp</string>
+</resources>
