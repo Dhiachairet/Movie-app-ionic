@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <div class="profile ion-text-center">
+          <img id="photo" />
+          <h1 id="name"></h1>
+          <p id="email"></p>
+          <ion-badge id="age" color="medium"></ion-badge>
+          <ion-badge id="role" color="tertiary">Administrator</ion-badge>
+        </div>
+
+        <ion-list class="ion-margin-top">
+          <ion-item href="/playlist" router-direction="root">
+            <ion-icon name="heart-outline" slot="start"></ion-icon>
+            <ion-label>My playlist</ion-label>
+            <ion-badge id="nb-favorites" slot="end" color="primary"></ion-badge>
+          </ion-item>
+          <ion-item href="/matching" router-direction="root">
+            <ion-icon name="people-outline" slot="start"></ion-icon>
+            <ion-label>My matches</ion-label>
+          </ion-item>
+        </ion-list>
+
+        <ion-button
+          id="btn-logout"
+          expand="block"
+          color="danger"
+          fill="outline"
+          class="ion-margin"
+        >
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          Log out
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

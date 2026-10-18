@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Matching</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="8" offset-md="2">
+        <ion-card color="light">
+          <ion-card-content>
+            <p>
+              The users below share more than
+              <strong><span id="threshold"></span>%</strong> of your taste in
+              movies.
+            </p>
+            <p class="formula">
+              Rate = movies in common / distinct movies across both playlists
+            </p>
+          </ion-card-content>
+        </ion-card>
+
+        <div id="match-list"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

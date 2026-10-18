@@ -1,0 +1,18 @@
+app-matching {
+  .formula {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--ion-color-medium);
+    margin-top: 6px;
+  }
+
+  ion-card ion-badge {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+
+  .common-title {
+    display: block;
+    margin-bottom: 6px;
+  }
+}

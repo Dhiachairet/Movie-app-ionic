@@ -1,0 +1,21 @@
+app-details-movie {
+  .poster-container {
+    text-align: center;
+    margin-top: 10px;
+
+    img {
+      max-width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  ion-badge {
+    margin: 0 4px;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+}
