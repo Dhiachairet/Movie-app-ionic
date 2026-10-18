@@ -1,0 +1,50 @@
+/*
+ * Global styles of the application
+ * (each page has its own styles in its .page.scss file)
+ */
+
+/* badge taken from TP1 */
+.category-badge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-right: 10px;
+}
+
+/* movie poster inside a list */
+ion-thumbnail.poster {
+  width: 54px;
+  height: 80px;
+  --border-radius: 6px;
+}
+
+/* message shown when a list is empty */
+.empty-state {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--ion-color-medium);
+
+  ion-icon {
+    font-size: 64px;
+  }
+}
+
+/* side menu */
+.menu-user {
+  ion-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+  }
+
+  h2 {
+    margin: 6px 0 0;
+    font-size: 1.1rem;
+  }
+
+  p {
+    margin: 4px 0 0;
+    font-size: 0.85rem;
+    color: var(--ion-color-medium);
+  }
+}

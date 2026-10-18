@@ -1,0 +1,27 @@
+{
+  "name": "movie-app",
+  "version": "0.0.1",
+  "description": "Ionic mini-project: movie management app with Firebase",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "ionic:serve": "vite",
+    "ionic:build": "vite build",
+    "android": "vite build && cap sync android && cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/camera": "^8.2.6",
+    "@capacitor/core": "^8.5.3",
+    "@ionic/pwa-elements": "^3.4.0",
+    "firebase": "^13.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "sass": "^1.105.2",
+    "vite": "^8.3.4"
+  }
+}
