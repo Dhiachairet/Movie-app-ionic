@@ -1,0 +1,52 @@
+rules_version = '2';
+
+// Copy into: Firebase console > Firestore Database > Rules > Publish
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function profile() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    // logged in AND not disabled by the admin
+    function isActive() {
+      return isSignedIn() && profile().disabled == false;
+    }
+
+    function isAdmin() {
+      return isActive() && profile().role == "admin";
+    }
+
+    match /users/{userId} {
+      // everyone can read their own profile (to know if they are disabled),
+      // an active user can read the other profiles (for the matching)
+      allow read: if isSignedIn() && (request.auth.uid == userId || isActive());
+
+      // sign-up: impossible to create yourself as admin or disabled
+      allow create: if isSignedIn()
+        && request.auth.uid == userId
+        && request.resource.data.role == "user"
+        && request.resource.data.disabled == false;
+
+      // a user edits their playlist without touching role / disabled,
+      // the admin can disable / re-enable an account
+      allow update: if isAdmin()
+        || (isActive()
+            && request.auth.uid == userId
+            && request.resource.data.role == resource.data.role
+            && request.resource.data.disabled == resource.data.disabled);
+
+      // a user is never deleted, only disabled
+      allow delete: if false;
+    }
+
+    match /movies/{movieId} {
+      allow read: if isActive();
+      allow write: if isAdmin();
+    }
+  }
+}
