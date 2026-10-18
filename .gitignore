@@ -1,2 +1,5 @@
 node_modules
 dist
+
+# API keys (see src/environments/environment.example.js)
+src/environments/environment.js

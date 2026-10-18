@@ -12,6 +12,7 @@ A movie app: users register with a camera photo, log in, build a playlist of fav
 ```bash
 npm install
 ```
+Then copy `src/environments/environment.example.js` to `src/environments/environment.js`. That file holds your keys and is ignored by git, so it never gets pushed.
 
 ### 2. Firebase
 1. Create a project on https://console.firebase.google.com
