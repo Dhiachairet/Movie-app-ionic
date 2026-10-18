@@ -1,0 +1,68 @@
+<ion-app>
+  <ion-menu content-id="main-content" disabled="true">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>MovieApp</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <div class="menu-user ion-text-center ion-padding">
+        <ion-avatar>
+          <img id="menu-photo" />
+        </ion-avatar>
+        <h2 id="menu-name"></h2>
+        <p id="menu-email"></p>
+      </div>
+
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item href="/home" router-direction="root" detail="false">
+            <ion-icon name="film-outline" slot="start"></ion-icon>
+            <ion-label>Catalog</ion-label>
+          </ion-item>
+          <ion-item href="/playlist" router-direction="root" detail="false">
+            <ion-icon name="heart-outline" slot="start"></ion-icon>
+            <ion-label>My playlist</ion-label>
+          </ion-item>
+          <ion-item href="/matching" router-direction="root" detail="false">
+            <ion-icon name="people-outline" slot="start"></ion-icon>
+            <ion-label>Matching</ion-label>
+          </ion-item>
+          <ion-item href="/profile" router-direction="root" detail="false">
+            <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+            <ion-label>My profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+      <ion-list id="menu-admin">
+        <ion-list-header>
+          <ion-label>Administration</ion-label>
+        </ion-list-header>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item href="/add" router-direction="root" detail="false">
+            <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+            <ion-label>Add movies</ion-label>
+          </ion-item>
+          <ion-item href="/users" router-direction="root" detail="false">
+            <ion-icon name="shield-checkmark-outline" slot="start"></ion-icon>
+            <ion-label>Manage users</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+      <ion-list>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item id="btn-logout" button detail="false">
+            <ion-icon name="log-out-outline" slot="start" color="danger"></ion-icon>
+            <ion-label color="danger">Log out</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router></ion-router>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app>
