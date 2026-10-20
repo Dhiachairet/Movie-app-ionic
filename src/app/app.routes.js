@@ -28,6 +28,11 @@ export const routes = [
     canActivate: adminGuard,
   },
   {
+    path: "/users/:userId",
+    component: "app-user-details",
+    canActivate: adminGuard,
+  },
+  {
     path: "/playlist",
     component: "app-playlist",
     canActivate: authGuard,
@@ -40,6 +45,11 @@ export const routes = [
   {
     path: "/profile",
     component: "app-profile",
+    canActivate: authGuard,
+  },
+  {
+    path: "/edit-profile",
+    component: "app-edit-profile",
     canActivate: authGuard,
   },
   {

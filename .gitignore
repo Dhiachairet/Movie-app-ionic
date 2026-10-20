@@ -3,3 +3,6 @@ dist
 
 # API keys (see src/environments/environment.example.js)
 src/environments/environment.js
+
+# personal study notes
+CHEATSHEET.md

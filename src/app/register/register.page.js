@@ -1,7 +1,11 @@
 import { User } from "../models/user.model.js";
 import { authSer } from "../services/auth.js";
-import { photoSer } from "../services/photos.js";
-import { presentLoading, presentToast, showAlertError } from "../shared/ui.js";
+import {
+  presentLoading,
+  presentPhotoActionSheet,
+  presentToast,
+  showAlertError,
+} from "../shared/ui.js";
 import template from "./register.page.html?raw";
 import "./register.page.scss";
 
@@ -27,7 +31,12 @@ class RegisterPage extends HTMLElement {
     let photo = null;
     showPhoto();
 
-    btnPhoto.addEventListener("click", presentActionSheet);
+    btnPhoto.addEventListener("click", () => {
+      presentPhotoActionSheet((newPhoto) => {
+        photo = newPhoto;
+        showPhoto();
+      });
+    });
 
     btnDeletePhoto.addEventListener("click", () => {
       photo = null;
@@ -93,45 +102,6 @@ class RegisterPage extends HTMLElement {
       inpPassword.value = "";
       photo = null;
       showPhoto();
-    }
-
-    async function presentActionSheet() {
-      const actionSheet = document.createElement("ion-action-sheet");
-      actionSheet.header = "Add a photo";
-      actionSheet.buttons = [
-        {
-          text: "Take a photo",
-          icon: "camera",
-          handler: async () => {
-            try {
-              photo = await photoSer.takePhoto();
-              showPhoto();
-            } catch (error) {
-              console.log("Photo cancelled", error);
-            }
-          },
-        },
-        {
-          text: "Choose from gallery",
-          icon: "image",
-          handler: async () => {
-            try {
-              photo = (await photoSer.choosePhoto()) || photo;
-              showPhoto();
-            } catch (error) {
-              console.log("Selection cancelled", error);
-            }
-          },
-        },
-        {
-          text: "Cancel",
-          icon: "close",
-          role: "cancel",
-        },
-      ];
-
-      document.body.appendChild(actionSheet);
-      await actionSheet.present();
     }
   }
 }

@@ -58,6 +58,7 @@ class PlaylistPage extends HTMLElement {
         let newLabel = document.createElement("ion-label");
         newLabel.appendChild(newTitle);
         newLabel.appendChild(newYear);
+        newLabel.className = "clickable";
         newLabel.addEventListener("click", () => {
           router.push("/details/" + movie.id);
         });

@@ -1,0 +1,13 @@
+app-edit-profile {
+  .photo-preview {
+    text-align: center;
+    margin-bottom: 10px;
+
+    img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+}

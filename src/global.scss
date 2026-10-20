@@ -29,6 +29,11 @@ ion-thumbnail.poster {
   }
 }
 
+/* element you can click on (shows a hand cursor) */
+.clickable {
+  cursor: pointer;
+}
+
 /* side menu */
 .menu-user {
   ion-avatar {

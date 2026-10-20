@@ -3,6 +3,7 @@ import {
   arrayUnion,
   collection,
   doc,
+  getDoc,
   getDocs,
   updateDoc,
 } from "firebase/firestore";
@@ -13,6 +14,22 @@ class Users {
   async getAllUsers() {
     let result = await getDocs(collection(db, "users"));
     return result.docs.map((element) => this.toUser(element.id, element.data()));
+  }
+
+  async getUserById(id) {
+    let result = await getDoc(doc(db, "users", id));
+    if (!result.exists()) return undefined;
+    return this.toUser(result.id, result.data());
+  }
+
+  // only the editable fields: email, role, disabled and favorites are not touched
+  async updateProfile(updatedUser) {
+    await updateDoc(doc(db, "users", updatedUser.id), {
+      firstName: updatedUser.firstName,
+      lastName: updatedUser.lastName,
+      age: updatedUser.age,
+      photo: updatedUser.photo,
+    });
   }
 
   async setDisabled(userId, disabled) {

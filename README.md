@@ -89,8 +89,10 @@ Each page is a **custom element** (`customElements.define("app-home", HomePage)`
 | Registration (first name, last name, age, camera photo) | `register/` + `services/photos.js` (`Camera.takePhoto`, like TP2) + `services/auth.js` → `register()` |
 | Authentication | `login/` + `services/auth.js` → `login()` (Firebase Auth) + `guards/auth.guard.js` |
 | Favorites playlist | `details-movie/` (add/remove button) + `playlist/` (TP1-style alert: "Remove this movie / Clear my playlist / Cancel") |
+| Edit profile (name, age, photo) | `profile/` (Edit profile button) → `edit-profile/` + `services/users.js` → `updateProfile()` |
 | Admin adds movies to the starting database | `add-movie/` + `services/movies.js` → `searchTmdb()`, `getPopularTmdb()`, `addMovie()` |
 | Admin deletes a movie | trash icon on `details-movie/` (like the TP2 delete) |
+| Admin sees a user's favorite movies | tap a user in `users/` → `user-details/` (route `/users/:userId`) |
 | Admin disables a user (no deletion) | `users/` (`ion-toggle` + confirmation) → `disabled: true`. A disabled user is refused at login and kicked out live (`onSnapshot` in `auth.js`); `firestore.rules` blocks them on the server too |
 | Data in Firebase | Firestore collections `users` and `movies`; the photo is compressed to 300px and stored as base64 (Firebase Storage needs a paid plan) |
 | Matching > 75% | `services/matching.js` (`computeRate`, `MATCHING_THRESHOLD`) + `matching/` |

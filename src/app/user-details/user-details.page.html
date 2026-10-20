@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/users"></ion-back-button>
+    </ion-buttons>
+    <ion-title>User details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="8" offset-md="2">
+        <div class="profile ion-text-center">
+          <img id="photo" />
+          <h1 id="name"></h1>
+          <p id="email"></p>
+          <ion-badge id="age" color="medium"></ion-badge>
+          <ion-badge id="status"></ion-badge>
+        </div>
+
+        <div class="ion-margin">
+          <strong>Favorite movies (<span id="nb-favorites">0</span>):</strong>
+        </div>
+        <ion-list id="favorite-list"></ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

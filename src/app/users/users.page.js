@@ -8,6 +8,7 @@ class UsersPage extends HTMLElement {
     this.innerHTML = template;
 
     let userList = this.querySelector("#user-list");
+    let router = document.querySelector("ion-router");
     let tabUsers = [];
 
     this.addEventListener("ionViewWillEnter", async () => {
@@ -43,6 +44,16 @@ class UsersPage extends HTMLElement {
         newLabel.appendChild(newName);
         newLabel.appendChild(newInfo);
         newLabel.appendChild(newStatus);
+
+        // clicking the photo or the name opens the user's details (not the toggle)
+        newAvatar.className = "clickable";
+        newLabel.className = "clickable";
+        newAvatar.addEventListener("click", () => {
+          router.push("/users/" + user.id);
+        });
+        newLabel.addEventListener("click", () => {
+          router.push("/users/" + user.id);
+        });
 
         let newItem = document.createElement("ion-item");
         newItem.appendChild(newAvatar);
