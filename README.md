@@ -2,7 +2,7 @@
 
 A movie app: users register with a camera photo, log in, build a playlist of favorite movies, and find other users whose taste matches theirs by more than 75%. An admin fills the catalog from TMDB and can disable users (never delete them).
 
-**Stack:** Ionic 9 (loaded from the CDN, like TP1) · plain JavaScript (no framework) · Vite · Capacitor 8 + `@capacitor/camera` (like TP2) · Firebase Auth + Firestore · TMDB API.
+**Stack:** Ionic 9  · plain JavaScript (no framework) · Vite · Capacitor 8 + `@capacitor/camera`  · Firebase Auth + Firestore · TMDB API.
 
 ---
 
